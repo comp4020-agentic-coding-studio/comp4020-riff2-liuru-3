@@ -215,6 +215,7 @@ main > ol,
   background: var(--paper-dim);
 }
 
+.card h2,
 .card h3 {
   margin-top: 0;
   font-size: 1.05rem;
