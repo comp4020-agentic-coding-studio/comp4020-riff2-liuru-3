@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>How to read a sutra — A way into CBETA</title>
+    <meta
+      name="description"
+      content="A step-by-step walkthrough of reading the Diamond Sutra in CBETA Online, plus how CBETA Online compares to the CBReader desktop app."
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site">
+      <div class="site-header-inner">
+        <a class="site-title" href="./"
+          >A way into CBETA<small>an unofficial guide, not the archive itself</small></a
+        >
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="primary-nav"
+        >
+          Menu
+        </button>
+        <nav class="primary" id="primary-nav" aria-label="Primary">
+          <a href="./">Home</a>
+          <a href="./about.html">About CBETA</a>
+          <a href="./collection.html">The collection</a>
+          <a href="./read.html">How to read a sutra</a>
+          <a href="./contact.html">Support &amp; contact</a>
+        </nav>
+      </div>
+    </header>
+    <main id="main">
+      <h1>Two ways to actually read something</h1>
+      <p class="lede">
+        CBETA gives you two tools, and its own site doesn't say which one to start with. Here's
+        the difference, then a five-step walkthrough that ends with a real sūtra open in front
+        of you.
+      </p>
+
+      <div class="card-grid">
+        <div class="card">
+          <h3>CBETA Online</h3>
+          <p>
+            A browser-based reader at
+            <a href="https://cbetaonline.dila.edu.tw/en/">cbetaonline.dila.edu.tw</a>. Keyword,
+            advanced and semantic search; browse by category, volume, catalogue or
+            author/translator; export to HTML, TXT, PDF, EPUB or ODT. Its interface has a
+            language switcher for Traditional Chinese, Simplified Chinese and English, though
+            most of the text content itself is still Chinese-only. Best if you're online and
+            want to search across the whole canon at once.
+          </p>
+        </div>
+        <div class="card">
+          <h3>CBReader (desktop)</h3>
+          <p>
+            A downloadable app for Windows and Mac (including Apple Silicon), distributed from
+            CBETA's site or on DVD/USB. It builds a full-text search index of the canon on your
+            own machine, so it works offline and doesn't depend on a network connection. Best
+            for sustained reading or research away from reliable internet.
+          </p>
+        </div>
+      </div>
+
+      <h2>Walkthrough: open the Diamond Sūtra in CBETA Online</h2>
+      <ol class="steps">
+        <li>
+          Go to <a href="https://cbetaonline.dila.edu.tw/en/">CBETA Online</a> and set the
+          language switcher to English if it isn't already.
+        </li>
+        <li>
+          Use the catalogue search (經目查詢) or category browse, and look for text number
+          <code>0235</code> in the Taishō Tripiṭaka — or just search the full text for
+          <code>金剛經</code> ("Diamond Sūtra").
+        </li>
+        <li>
+          Open the result cited as <code>T08n0235</code>: Taishō volume 8, text 235, Kumārajīva's
+          translation.
+        </li>
+        <li>
+          Use the structural navigation panel on the side to jump between pages, or the in-text
+          search to jump straight to a line — for example, the sūtra's best-known phrase,
+          應無所住而生其心 ("let the mind arise without dwelling on anything").
+        </li>
+        <li>
+          If you want to keep a copy, use the export menu for a PDF or EPUB; if you want to cite
+          a line precisely, copy the citation string CBETA generates for that exact spot — it
+          takes the shape <code>T08n0235_pNNNNa##</code>, naming volume, text, page, register
+          and line — rather than a page number, so anyone else can jump straight to the same
+          line regardless of which edition they're reading from.
+        </li>
+      </ol>
+
+      <p class="disclaimer">
+        Interface features described here (search modes, browse options, export formats, the
+        citation format) are drawn from CBETA Online's own English and Chinese interface. Check
+        <a href="https://cbetaonline.dila.edu.tw/en/">CBETA Online</a> directly for the exact
+        citation of any specific line before using it in your own work.
+      </p>
+    </main>
+    <footer class="site">
+      <div class="site-footer-inner">
+        <p>
+          Unofficial and independent. Not affiliated with, endorsed by, or hosted by CBETA. The
+          real site is at <a href="https://www.cbeta.org/">cbeta.org</a>.
+        </p>
+      </div>
+    </footer>
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>

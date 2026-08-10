@@ -1,24 +1,110 @@
 <!doctype html>
-<html lang="en-AU">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>COMP4020 prototype</title>
+    <title>A way into CBETA — an unofficial front door to the Chinese Buddhist canon</title>
+    <meta
+      name="description"
+      content="An unofficial guide to CBETA, the digital Chinese Buddhist canon: what it holds, how to actually read something in it, and how to support the real project."
+    />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <header>
-      <nav aria-label="Primary">
-        <a href="./">Home</a>
-      </nav>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site">
+      <div class="site-header-inner">
+        <a class="site-title" href="./"
+          >A way into CBETA<small>an unofficial guide, not the archive itself</small></a
+        >
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="primary-nav"
+        >
+          Menu
+        </button>
+        <nav class="primary" id="primary-nav" aria-label="Primary">
+          <a href="./">Home</a>
+          <a href="./about.html">About CBETA</a>
+          <a href="./collection.html">The collection</a>
+          <a href="./read.html">How to read a sutra</a>
+          <a href="./contact.html">Support &amp; contact</a>
+        </nav>
+      </div>
     </header>
-    <main>
-      <h1>COMP4020 prototype</h1>
-      <p data-testid="intro">
-        Replace this with your prototype. This week's brief is on the course website;
-        <code>spec/README.md</code> explains how the checks in this repo relate to it.
+    <main id="main">
+      <h1>The canon is enormous. The front door isn't.</h1>
+      <p class="lede">
+        <a href="https://www.cbeta.org/">CBETA</a>, the Chinese Buddhist Electronic Text
+        Association, has spent almost thirty years turning the Chinese Buddhist canon —
+        thousands of scrolls, tens of thousands of pages — into a searchable digital archive
+        that scholars everywhere now treat as the default. It is one of the great quiet
+        achievements of the digital humanities. Its homepage does not tell you any of this.
+      </p>
+
+      <div class="panel">
+        <h2>Why this page exists</h2>
+        <p>
+          Land on <a href="https://www.cbeta.org/">cbeta.org</a> without already knowing what
+          a Tripiṭaka is, and you meet six dense navigation menus, a donation drive, and links
+          to at least two versions of the site with no indication of which one you want. If you
+          read English rather than Chinese, the only page written for you is a fundraising
+          form. None of that is a small thing to fix — CBETA is a foundation, not a startup,
+          and rebuilding its own site is not this page's job.
+        </p>
+        <p>
+          What a smaller page can do is add the door CBETA's own site skips: explain what's
+          actually in the archive, show you how to find and read one real text in it, and then
+          hand you off to the genuine thing. This page does that and nothing more — it is not
+          affiliated with CBETA, and it does not host any of their texts.
+        </p>
+      </div>
+
+      <h2>Three things worth knowing before you click through</h2>
+      <div class="card-grid">
+        <div class="card">
+          <h3>It's bigger than one canon</h3>
+          <p>
+            The core is the Taishō Tripiṭaka, but CBETA has added the Xuzangjing, the Jiaxing
+            Canon, stone-carved sutra rubbings and modern scholarship on top of it. See
+            <a href="./collection.html">the collection</a>.
+          </p>
+        </div>
+        <div class="card">
+          <h3>You can read it two ways</h3>
+          <p>
+            A browser tool for searching and citing, or a desktop app for reading offline.
+            Neither assumes you already know the citation system. See
+            <a href="./read.html">how to read a sutra</a>.
+          </p>
+        </div>
+        <div class="card">
+          <h3>It runs on donations and volunteers</h3>
+          <p>
+            Money keeps digitisation staff paid; code contributions on GitHub keep the tools
+            improving. See <a href="./contact.html">support &amp; contact</a>.
+          </p>
+        </div>
+      </div>
+
+      <p class="disclaimer">
+        This is a course exercise for COMP4020 (an "unsolicited redesign" of a real
+        organisation's site), built to point people at CBETA's actual work, not to replace it.
+        The real thing is at <a href="https://www.cbeta.org/">cbeta.org</a> and
+        <a href="https://cbetaonline.dila.edu.tw/">cbetaonline.dila.edu.tw</a>.
       </p>
     </main>
+    <footer class="site">
+      <div class="site-footer-inner">
+        <p>
+          Unofficial and independent. Not affiliated with, endorsed by, or hosted by CBETA. All
+          facts here are drawn from CBETA's own site and published scholarship about the
+          project, then rewritten in plain English for a first-time visitor.
+        </p>
+      </div>
+    </footer>
     <script type="module" src="./main.ts"></script>
   </body>
 </html>

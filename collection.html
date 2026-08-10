@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The collection — A way into CBETA</title>
+    <meta
+      name="description"
+      content="What's actually in CBETA's archive: the Taishō Tripiṭaka, the Xuzangjing, the Jiaxing Canon, and more, with a worked example."
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site">
+      <div class="site-header-inner">
+        <a class="site-title" href="./"
+          >A way into CBETA<small>an unofficial guide, not the archive itself</small></a
+        >
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="primary-nav"
+        >
+          Menu
+        </button>
+        <nav class="primary" id="primary-nav" aria-label="Primary">
+          <a href="./">Home</a>
+          <a href="./about.html">About CBETA</a>
+          <a href="./collection.html">The collection</a>
+          <a href="./read.html">How to read a sutra</a>
+          <a href="./contact.html">Support &amp; contact</a>
+        </nav>
+      </div>
+    </header>
+    <main id="main">
+      <h1>What's actually in the archive</h1>
+      <p class="lede">
+        "The Buddhist canon" undersells it: CBETA isn't one collection but several, stacked on
+        top of the Taishō Tripiṭaka that scholars have used as the standard reference edition
+        since the 1920s and 30s. Here's what each part is, in plain terms.
+      </p>
+
+      <table class="canon">
+        <caption>
+          The major collections in CBETA, and what's in each
+        </caption>
+        <thead>
+          <tr>
+            <th scope="col">Collection</th>
+            <th scope="col">Code</th>
+            <th scope="col">What it is</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Taishō Tripiṭaka</td>
+            <td><code>T</code></td>
+            <td>
+              The core: volumes 1–55 and 85 of the modern Japanese scholarly edition (1924–1934),
+              itself a collation of the Korean, Song, Yuan and Ming canons against Dunhuang,
+              Pāli and Sanskrit manuscripts. Sūtras, monastic rules, commentaries and treatises.
+            </td>
+          </tr>
+          <tr>
+            <td>Xuzangjing (Shinsan Zokuzōkyō)</td>
+            <td><code>X</code></td>
+            <td>
+              90 further volumes of texts the Taishō editors left out — later commentaries and
+              writings, mostly from the Chan and Pure Land traditions.
+            </td>
+          </tr>
+          <tr>
+            <td>Jiaxing Canon</td>
+            <td><code>J</code></td>
+            <td>
+              Selections from a Ming–Qing dynasty print canon, added for material the other two
+              don't cover.
+            </td>
+          </tr>
+          <tr>
+            <td>Stone-carved sutra rubbings</td>
+            <td>—</td>
+            <td>
+              Rubbings of Buddhist texts carved into stone during the Northern Dynasties, a
+              medium print editions can't represent.
+            </td>
+          </tr>
+          <tr>
+            <td>Modern works &amp; catalogues</td>
+            <td>—</td>
+            <td>
+              Contemporary scholarship and reference material, reviewed for inclusion by an
+              advisory committee since 2024.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="panel">
+        <h2>A worked example: the Diamond Sūtra</h2>
+        <p>
+          One short, famous text shows how the pieces fit together. Kumārajīva's Chinese
+          translation of the Diamond Sūtra (金剛經) sits in the Taishō Tripiṭaka as text number
+          235, in volume 8 — cited in CBETA's own shorthand as <code>T08n0235</code>. Every text
+          in the archive has an address like this: canon letter, volume number, text number,
+          then page, register and line. Once you can read one, you can find any of the others.
+          <a href="./read.html">Here's how to actually open it.</a>
+        </p>
+      </div>
+
+      <p class="disclaimer">
+        Scope and volume numbers are drawn from CBETA's published copyright and rights-holder
+        notices (Daizō Shuppansha, Kokusho Kankōkai, the National Central Library in Taipei,
+        Yuan Heng Temple, and scholars Du Doucheng and Fang Guangchang, among others), and from
+        Christian Wittern's account of the project. See
+        <a href="https://cbetaonline.dila.edu.tw/en/">CBETA Online</a> for the current,
+        authoritative catalogue.
+      </p>
+    </main>
+    <footer class="site">
+      <div class="site-footer-inner">
+        <p>
+          Unofficial and independent. Not affiliated with, endorsed by, or hosted by CBETA. The
+          real site is at <a href="https://www.cbeta.org/">cbeta.org</a>.
+        </p>
+      </div>
+    </footer>
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>
