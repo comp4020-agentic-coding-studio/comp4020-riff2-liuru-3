@@ -1,86 +1,76 @@
 # Hand-off
 
-## Current state (run 1 on crit-2, 46.5h to cutoff at time of writing)
+## Current state (run 2 on crit-2, ~40h to cutoff at time of writing)
 
-`comp4020-crit2-liuru` --- this week's brief is
+`comp4020-crit2-liuru` --- this deliverable's brief is
 [crits/02-unsolicited-redesign](https://comp.anu.edu.au/courses/comp4020-agentic-coding-studio/api/crits/02-unsolicited-redesign.json):
-find a real organisation with a good mission and a bad website, and build a
-better front door to it. Astro is the new course default stack but any static
-stack (hand-written HTML included) is still legitimate.
+find a real organisation you like whose website you don't, and build them a
+better one. Full spec, brief, and my subject/stack decisions are already
+written into this repo's own `CLAUDE.md` --- don't re-derive them here.
 
-Subject chosen: **CBETA** (Chinese Buddhist Electronic Text Association), a
-real Taipei-based nonprofit that's digitised the Chinese Buddhist canon since
-1998 --- genuinely excellent archive, genuinely bad front door for a
-first-time, English-reading visitor (six dense Chinese-only nav menus, no
-beginner path, English limited to a donation form). I looked first at
-something tied to my own Tang Yin theme and deliberately ruled it out (no
-independent site exists to redesign against --- it's folded into a municipal
-tourism portal); forcing that fit would have meant writing criticism of a site
-I hadn't actually evaluated, so I picked the organisation I could genuinely
-critique instead. That refusal is this week's reflection.
+**The redesign was already built in a prior run this week** (commits
+`64e9264`, `554c100`, `7994f63`) before this run started: five pages for
+CBETA (the Chinese Buddhist Electronic Text Association) --- home, about, the
+collection, how to read a sutra, support & contact --- a manuscript-style
+shared theme, `spec/crit-2.test.ts` checking this week's spec lines, `PROCESS.md`
+(4 cited moments), and `reflections/crit-2.md` (both written and correctly
+named). This run found the working tree already clean with nothing queued.
 
-Built five pages (home, about, collection, how-to-read, support & contact) as
-hand-written multi-page HTML/CSS/TS on the starter's Vite setup --- explicitly
-did **not** convert to Astro, because the course plugin's `stack` skill (which
-handles the base-path/CI-link-check traps of that conversion) wasn't in this
-run's available-skill list, and the CLAUDE.md is explicit that hand-wiring the
-swap without it is the wrong move. Reasoning is written into this repo's own
-`CLAUDE.md` under "This week's subject and stack call" so a future run doesn't
-re-litigate it. Reconsider only if a future week's spec specifically rewards
-the Astro migration itself, or if the `stack` skill becomes available.
+This run's job was pure verification, and everything came back green with no
+code changes needed:
 
-Design: cream/ink/vermilion-seal palette, serif headings, no images (avoids
-needing rights to CBETA photography and keeps the page fast) --- hand-verified
-WCAG contrast by computing luminance directly (lowest pair, accent-on-cream,
-came out 6.46:1). Accessible mobile nav toggle (aria-expanded, keyboard
-operable) verified with `agent-browser` at both marking viewports
-(1920×1080, 390×844), including exercising the toggle and confirming no
-horizontal overflow at 390px width.
-
-All real facts (founding date 1998, founders, canon scope --- Taishō vols
-1--55 & 85, Xuzangjing, Jiaxing --- CBReader/CBETA Online features, contact
-details) came from CBETA's own site and Christian Wittern's published account
-of the project, rewritten rather than machine-translated or pasted. Caught
-myself nearly fabricating a specific citation-string example (a page/line
-number I hadn't actually verified) and rewrote it generically with a
-disclaimer instead --- the second moment cited in `PROCESS.md`.
-
-`pnpm check` (typecheck, build, oxlint, stylelint, 55 vitest tests including
-a new `spec/crit-2.test.ts` covering this week's mechanically-checkable spec
-lines) and `pnpm check:evidence` both green. `pnpm dlx linkinator ./dist`
-clean. `PROCESS.md` and `reflections/crit-2.md` both written (275 words,
-within the 150--300 range). Git tree clean, pushed to `origin/main` at
-`7994f63`.
+- `pnpm check` (typecheck, build, oxlint, stylelint, vitest): 55/55 tests pass.
+- `pnpm check:evidence`: reflection and PROCESS.md citations both verified.
+- `pnpm dlx linkinator ./dist`: 9/9 links resolve, no broken links.
+- Actually opened the built site in `agent-browser` (not just trusted the
+  checks) at both marking viewports, 1920×1080 and 390×844, on the home page,
+  the read page (densest prose + inline citation-code pills), and the
+  collection page (has a data table, the classic mobile-overflow culprit).
+  No horizontal overflow anywhere, the mobile nav toggle opens and lists all
+  five pages correctly, and the about page's prose reads as genuinely
+  fact-grounded (founding date, founders, funding bodies, GitHub presence all
+  visible and specific, not generic filler).
+- Git tree was clean before and after; nothing to commit this run.
 
 ## What's actually left before cutoff
 
-Nothing urgent --- this is a solid, complete v1 well outside the 24h window.
-Per doctrine, this is still "plan/build/deepen" territory, not "finish; don't
-start a new direction" yet. Things worth considering in a later run this week,
-roughly in priority order:
+Nothing urgent --- this is a complete, verified v1 with ~40h still on the
+clock, comfortably past "plan/build" into "deepen or hold" territory per
+doctrine. I chose not to invent scope this run since nothing was broken and
+the brief doesn't reward padding. Worth considering in a later run, in
+priority order:
 
-1. Re-fetch the brief once more to check nothing changed (it shouldn't, but
-   confirm rather than assume from this file).
-2. A second look at whether five pages is the right depth, or whether one of
-   them (probably "the collection") could use a bit more texture --- but don't
-   add pages just to add them; the brief rewards restructuring real content
-   well, not page count.
-3. Once inside the 24h window: work the finishing-steps checklist from
-   doctrine fresh (site builds, PROCESS.md maps to real commits, reflection
-   present and correctly named, git clean, pushed, memory updated) and check
-   the **live** GitHub Pages URL once the harness has published it --- not
-   done yet this run since publishing isn't my action to take.
+1. Re-fetch the brief once more before doing anything, per doctrine --- don't
+   assume from this file that it hasn't changed.
+2. If there's a genuine deepening left, it's likely on the "why mine is
+   better" articulation for the crit conversation itself (the spec asks you
+   to be able to say this at the crit, not necessarily written further into
+   the repo) --- reread the CBETA homepage fresh before the crit and make sure
+   the comparison still holds; CBETA could in principle change its own site
+   between now and then.
+3. A manual accessibility pass (axe-core or similar) is still not wired in and
+   still isn't required by any check --- same situation as noted for
+   assignment-1's equivalent gap. Consider only if there's genuinely nothing
+   else worth the time; this crit's actual content (long-form prose, tables,
+   a nav toggle) is lower a11y risk than assignment-1's custom interactive
+   widgets were.
+4. Once inside the 24h window: rerun the finishing-steps checklist fresh
+   (site builds, PROCESS.md maps to real commits, reflection present and
+   correctly named, git clean, pushed, memory updated) and check the **live**
+   GitHub Pages URL once the harness has published it.
 
-## Correction to a recurring misreading from crit-1 hand-offs (still holds)
+## The single most important next action
+
+Re-open this repo, reread this file, re-fetch the crit-2 brief to confirm it's
+unchanged, then decide whether item 2 (re-verifying the "better in what way"
+comparison against CBETA's live site) is worth a fresh look before the crit.
+Don't add pages or restructure content that's already verified and working
+just to have something to show for a run --- this deliverable is genuinely
+done; the discipline this week is knowing when to stop, not when to add more.
+
+## Correction to a recurring misreading from earlier hand-offs (still holds)
 
 "Flip the repo to public / enable GitHub Pages" is **not** an action item for
 me on any deliverable. `gh` is unauthenticated in this sandbox; the harness
 publishes on its own schedule once I push a clean tree. Don't reintroduce this
 as a task.
-
-## The single most important next action
-
-Re-open this repo, reread this file, re-fetch the crit-2 brief to confirm it's
-unchanged, then continue deepening the CBETA redesign per the priority list
-above. If already inside 24h of cutoff by then, switch straight to the
-finishing-steps checklist instead of starting anything new.

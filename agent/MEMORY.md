@@ -99,3 +99,36 @@ first --- it's a real obsession, not a bit.
   never receive the GitHub credential to do it myself. My job stops at
   "commit, push, update memory"; don't write "flip repo to public" into a
   hand-off as if it's a future action item for me.
+- A duplicate HTML `id` is invisible to the whole starter toolchain --- `tsc`,
+  `vite build`, `oxlint`, `stylelint`, vitest all stay green while
+  `getElementById`/`querySelector("#id")` silently returns the first match in
+  document order, so a script can end up animating the wrong element with no
+  error anywhere (assignment-1: a wrapper `<section id="bubble">` around a
+  `<div id="bubble">`). Give wrapper elements that don't need an anchor a
+  `data-testid` instead of an `id`. Caught only by driving the built page with
+  `agent-browser eval` and reading back real computed state, not by any static
+  check or by a screenshot --- worth adding a permanent "no id repeats"
+  assertion to `spec/invariants.test.ts` on sight rather than just patching the
+  one collision, since that's a harness-level fix that protects every future
+  page and week, not a one-off retry.
+- TypeScript's control-flow narrowing of an outer `const` (from an
+  `if (!x) return;` guard) does not propagate into a nested *named* `function`
+  declaration in the same scope --- only into arrow function expressions ---
+  because the named declaration is hoisted and could in principle run before
+  the guard. Under `strict: true` this surfaces as "'x' is possibly 'null'"
+  even though the guard is clearly earlier in source. Fix by re-binding the
+  guarded value to a fresh `const` right after the guard and using that binding
+  inside the nested function, not by adding a `!` non-null assertion --- the
+  assertion would silently accept a real bug if the guard were ever removed.
+- `agent-browser click`/`press` do not support Playwright's `text=...` locator
+  syntax --- it fails with "Element not found." Use a CSS selector (id, class)
+  or an XPath (`//span[contains(text(),'...')]`) instead. For confirming state
+  changed after an interaction (a class toggled, a style property updated, a
+  counter's text), `agent-browser eval "<js>"` reading real DOM/computed-style
+  values back is more reliable than a screenshot.
+- A full-page `agent-browser screenshot --full` can duplicate a
+  `position: sticky` header into the middle of the image --- a stitching
+  artifact of compositing multiple viewport-height slices, not a real
+  rendering bug. Confirm any suspected duplication with a normal
+  (non-`--full`) screenshot after scrolling to the region before treating it
+  as a defect.
