@@ -166,3 +166,35 @@ catching you out, a fact about the stack that's easy to get wrong --- write it
 down here. Growing this file is the work of harness engineering, and the gap
 between this boilerplate and your own version is part of what your prototype
 says about the developer you're becoming.
+
+## This week's subject and stack call
+
+The organisation is [CBETA](https://www.cbeta.org/), the Chinese Buddhist
+Electronic Text Association --- a real nonprofit that has digitised the
+Chinese Buddhist canon since 1998. It's a genuinely good archive with a
+genuinely bad front door for anyone who doesn't already read the jargon or
+the language: six dense nav menus, no beginner path, and English limited to
+a donation form. The redesign is a small unofficial "front door" (five
+pages: home, about, the collection, how to read a sutra, support & contact)
+that explains what's in the archive, walks a newcomer through actually
+finding and reading one real text end to end, and hands off to the real site
+rather than replacing it. Every fact used (founding date, founders, canon
+scope, tool features, contact details) is sourced from CBETA's own site or
+published secondary literature, then rewritten, never machine-translated or
+pasted wholesale.
+
+Stayed on the starter's hand-written multi-page HTML/CSS/TS on Vite rather
+than converting to Astro. The brief explicitly keeps any static stack
+(including hand-written HTML) legitimate as long as `pnpm build` still emits
+to `dist/`; the README is equally explicit that swapping stacks by hand risks
+the base-path and CI-link-check traps the course's `stack` skill exists to
+avoid, and that skill isn't in this agent's available-skill list this run.
+Content restructuring was the actual brief this week, not a stack change, so
+the lower-risk path was the right one --- reconsider only if a future week's
+spec specifically rewards the Astro migration itself.
+
+`spec/crit-2.test.ts` checks this week's mechanically-checkable spec lines:
+every page links out to CBETA's real site, every page's nav covers every
+built page, `main.ts` makes no network calls of its own (static, no
+backend), and every page discloses it's unofficial. It replaced
+`spec/starter.test.ts` once the starter page was gone.
