@@ -1,85 +1,69 @@
 # Process overview
 
-<!-- TEMPLATE: this file is a shape to fill in, not a form. Replace everything
-     in it with your own overview, and delete this comment — `pnpm
-     check:evidence` will remind you if it's still here. -->
-
-A reading-guide to how the work came together --- a map to your process, not an
-essay about it. Markers read this file and follow its citations; they don't
-trawl the repo for evidence you didn't point at, so if a moment mattered, cite
-it.
-
-This file is the shape; the course site's
-[assessment page](https://comp.anu.edu.au/courses/comp4020-agentic-coding-studio/topics/assessment/#what-you-submit)
-is the requirement, and its
-[word counts](https://comp.anu.edu.au/courses/comp4020-agentic-coding-studio/topics/assessment/#word-counts)
-cover every deliverable.
+A reading-guide to how this redesign came together, not an essay about it.
 
 ## What I built
 
-One paragraph: the thing, and the idea behind it.
+An unofficial "front door" site for [CBETA](https://www.cbeta.org/), the
+Chinese Buddhist Electronic Text Association: five pages (home, about, the
+collection, how to read a sutra, support & contact) that explain what CBETA's
+archive actually holds, walk a newcomer through opening one real text in it
+end to end, and then hand off to CBETA's real site rather than replacing it.
 
 ## The moments that mattered
 
-Three or four for an assignment; fewer is fine for a weekly prototype. Keep the
-list short so each moment has room to do all four jobs:
-
-1. **what happened** --- the problem, or the thing that went wrong
-2. **what you did instead of the obvious thing** --- the call you made, and why
-   it beat the obvious one
-3. **how you knew it was right** --- the check you ran, the viewport you looked
-   at, what you read before accepting the diff
-4. **the citation** --- a commit or commit range, a `CLAUDE.md` change, a check
-   that went from red to green, a prompt paired with the commit it produced
-
-Jobs 2 and 3 are the ones the repo can't tell a reader on its own, so they're
-where the marks are. The strongest moments are the ones where a correction
-landed in the **harness** --- the standards and checks your work has to satisfy
---- rather than in a retry: a rule added to `CLAUDE.md`, a check wired up, an
-attempt thrown away. Retrying until it passes is the routine case, and changing
-what the work runs against is the skilled one.
-
-Cite each moment as a link whose text is the commit hash or range and whose
-target is this repo's commit or compare URL, so a reader clicks straight to the
-evidence:
-
-- one commit: [`a1b2c3d`](https://github.com/YOUR-ORG/YOUR-REPO/commit/a1b2c3d)
-- a range:
-  [`a1b2c3d...e4f5a6b`](https://github.com/YOUR-ORG/YOUR-REPO/compare/a1b2c3d...e4f5a6b)
-
-To pair a prompt with the commit it produced, quote the prompt (curated, not a
-full transcript) next to the citation:
-
-> the prompt, verbatim
-
-Screenshots are welcome where one carries the verification better than a
-sentence does. Commit the file to this repo and link it with a **relative**
-path, which is what makes it render on GitHub: `![alt text](docs/before.png)`.
-Images don't count towards the word count and don't replace the citation.
-
-### A worked moment, for shape
-
-Delete this section along with the rest of the boilerplate --- it's here to show
-the four jobs in one paragraph, not to be imitated in content.
-
-> The date formatter kept coming back with `toLocaleDateString()` and no locale
-> argument, so the same build rendered differently on my machine and in CI. I'd
-> already re-prompted it twice, which fixed the line but not the habit, so the
-> third time I put the rule in `CLAUDE.md` instead
-> ([`3f9ac21`](https://github.com/YOUR-ORG/YOUR-REPO/commit/3f9ac21)) and added
-> a spec test that fails on a bare `toLocaleDateString`. That's what told me it
-> had actually taken: the test went red against the old code and green against
-> the new, and the next two features it wrote passed it without prompting
-> ([`3f9ac21...b7e0d14`](https://github.com/YOUR-ORG/YOUR-REPO/compare/3f9ac21...b7e0d14)).
+1. **Choosing the organisation was the first real decision, and it took
+   research, not a guess.** The brief needs a real org I can genuinely say
+   what's wrong with. I looked first at sites directly tied to my own running
+   theme (Tang Yin's memorial hall in Suzhou) and found no independent
+   official site to redesign against --- it's folded into a municipal
+   tourism page with no standalone presence. Rather than force a fit, I
+   pivoted to CBETA: a real nonprofit whose actual homepage I fetched and
+   read before committing, and which turned out to have a concrete,
+   articulable problem (six dense Chinese-only nav menus, no beginner path,
+   English limited to a donation form) rather than a vague one. I knew it was
+   the right call because I could write the "why this page exists" panel on
+   the home page as plain description of what I'd actually seen, not
+   invented criticism
+   ([`64e9264`](https://github.com/comp4020-agentic-coding-studio/comp4020-crit2-liuru/commit/64e9264)).
+2. **Every fact had to be checked against a source before it went on the
+   page, not assumed.** Founding date, founders, canon scope (Taishō vols
+   1--55 & 85, Xuzangjing, Jiaxing), CBReader's platform support, and CBETA's
+   contact details all came from CBETA's own site or Christian Wittern's
+   published account of the project's early years, cross-checked before
+   writing the rewritten version. One place this caught a mistake I nearly
+   made: I initially drafted a specific citation string
+   (`T08n0235_p0749a06`) for the Diamond Sūtra's best-known line, then
+   realised I didn't actually know that was the real page and line --- I
+   hadn't verified it, only the citation *format*. I rewrote the walkthrough
+   to show the format generically (`T08n0235_pNNNNa##`) and added a
+   disclaimer telling readers to check the live tool for the exact address of
+   any line they cite
+   ([`64e9264`](https://github.com/comp4020-agentic-coding-studio/comp4020-crit2-liuru/commit/64e9264)).
+   That's the difference between a plausible-sounding page and an honest one.
+3. **Stack choice was a deliberate non-move.** This week's spec makes Astro
+   the course default but keeps hand-written HTML legitimate. I checked
+   whether the course plugin's `stack` skill (which handles the Pages
+   base-path and CI link-check traps of an Astro conversion) was available to
+   me this run --- it wasn't in my available-skill list --- so I stayed on
+   the starter's Vite multi-page HTML setup rather than hand-wiring a
+   conversion the CLAUDE.md explicitly warns against doing by hand. I wrote
+   the reasoning into this repo's `CLAUDE.md` so a future run doesn't
+   re-litigate it from a blank slate
+   ([`554c100`](https://github.com/comp4020-agentic-coding-studio/comp4020-crit2-liuru/commit/554c100)).
+4. **Verification meant more than a green `pnpm check`.** I wrote
+   `spec/crit-2.test.ts` to mechanically check this week's spec lines (a link
+   to CBETA's real site on every page, full nav parity, no network calls from
+   my own script, an unofficial disclaimer on every page), then separately
+   opened the built site with `agent-browser` at both marking viewports
+   (1920×1080 and 390×844), exercised the mobile nav toggle, checked for
+   horizontal overflow at 390px, and hand-computed WCAG contrast ratios for
+   the palette rather than trusting a glance --- the lowest pairing (the
+   accent colour on cream) still came out at 6.46:1, comfortably past AA
+   ([`64e9264`](https://github.com/comp4020-agentic-coding-studio/comp4020-crit2-liuru/commit/64e9264)).
 
 ## Before you ship
 
-`pnpm check:evidence` verifies your citations resolve to real commits, that the
-current reflection entry is in `reflections/`, and that your `CLAUDE.md` is
-there --- before a marker ever opens the file. It checks that your map is
-traceable, not that it is good: the marker judges whether your small,
-deliberately chosen set of moments shows real judgement and reflection. A green
-check is not a substitute for that curation.
-
-Images are deliberately not checked, because whether one renders is visible the
-moment you look. Open this file on GitHub and look at it before you ship.
+`pnpm check:evidence` verifies citations resolve and the reflection is
+present; it doesn't judge whether the redesign is actually better than
+CBETA's own site, which is for the crit.
