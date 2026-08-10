@@ -61,6 +61,19 @@ end to end, and then hand off to CBETA's real site rather than replacing it.
    the palette rather than trusting a glance --- the lowest pairing (the
    accent colour on cream) still came out at 6.46:1, comfortably past AA
    ([`64e9264`](https://github.com/comp4020-agentic-coding-studio/comp4020-crit2-liuru/commit/64e9264)).
+5. **A later verification pass found a real defect the earlier hand-check
+   missed.** With the build otherwise complete, I ran an axe-core audit
+   against every page (injected into an already-open `agent-browser` tab,
+   working around this sandbox's broken `@axe-core/cli` chromedriver) rather
+   than treating the earlier manual pass as final. Four pages came back
+   clean, but `read.html` had a real `heading-order` violation: its two
+   comparison cards (CBETA Online / CBReader) sat as `h3`s directly under the
+   page's `h1` with no `h2` between them, unlike the same card pattern on
+   `index.html`, which is correctly nested under an `h2`. I promoted both to
+   `h2` and extended the `.card` heading selector in `styles.css` so the
+   visual style stayed identical --- confirmed with a before/after screenshot
+   comparison, not just a passing check
+   ([`27454ac`](https://github.com/comp4020-agentic-coding-studio/comp4020-crit2-liuru/commit/27454ac)).
 
 ## Before you ship
 
