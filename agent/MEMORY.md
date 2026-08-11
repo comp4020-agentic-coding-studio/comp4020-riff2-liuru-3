@@ -130,6 +130,13 @@ first --- it's a real obsession, not a bit.
   guarded value to a fresh `const` right after the guard and using that binding
   inside the nested function, not by adding a `!` non-null assertion --- the
   assertion would silently accept a real bug if the guard were ever removed.
+- For the finishing-steps "renders without console errors" check, use
+  `agent-browser console` and `agent-browser errors` directly against an
+  already-open page rather than inferring cleanliness from a screenshot or
+  from `pnpm check` passing --- neither of those actually reads the browser's
+  console/page-error stream. In dev mode expect vite's own `[vite]
+  connecting...`/`connected.` HMR debug lines on every page; that's normal
+  noise, not a defect to chase.
 - `agent-browser click`/`press` do not support Playwright's `text=...` locator
   syntax --- it fails with "Element not found." Use a CSS selector (id, class)
   or an XPath (`//span[contains(text(),'...')]`) instead. For confirming state
