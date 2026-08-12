@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notes — A way into CBETA</title>
+    <meta
+      name="description"
+      content="The Zen Astro theme's own placeholder posts, left in unedited as proof this site really is the theme, running."
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site">
+      <div class="site-header-inner">
+        <a class="site-title" href="./"
+          >A way into CBETA<small>an unofficial guide, not the archive itself</small></a
+        >
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="primary-nav"
+        >
+          Menu
+        </button>
+        <nav class="primary" id="primary-nav" aria-label="Primary">
+          <a href="./">Home</a>
+          <a href="./about.html">About CBETA</a>
+          <a href="./collection.html">The collection</a>
+          <a href="./read.html">How to read a sutra</a>
+          <a href="./contact.html">Support &amp; contact</a>
+          <a href="./blog.html">Notes</a>
+        </nav>
+        <button class="theme-toggle" type="button" aria-label="Toggle light and dark theme">
+          <span aria-hidden="true">◑</span>
+        </button>
+      </div>
+    </header>
+    <main id="main">
+      <h1>Notes: what shipped with the theme</h1>
+      <p class="lede">
+        <a href="https://astro.build/themes/details/zen/">Zen</a>, the Astro theme this site is
+        built on, is a blog theme. A blog theme ships with sample posts. This page doesn't hide
+        that — it's the theme's own placeholder content, word for word, still sitting where the
+        template put it.
+      </p>
+
+      <div class="panel">
+        <h2>Why these are still here</h2>
+        <p>
+          A real deployment deletes these before going live. Leaving them in is the point: it's
+          evidence that nothing about the front-end is hand-forged from scratch — it's a
+          template, running, with CBETA content poured into its actual pages and the template's
+          own scaffolding left standing everywhere else. See also the
+          <a href="./about.html">install instructions in the footer</a> of every page.
+        </p>
+      </div>
+
+      <div class="year-group">
+        <h2>2026</h2>
+        <ol class="steps">
+          <li>
+            <strong>Introducing Zen Theme</strong> — 14 May.
+            <em
+              >"A clean, modern Astro blog theme with excellent readability and beautiful
+              typography."</em
+            >
+          </li>
+        </ol>
+      </div>
+
+      <div class="year-group">
+        <h2>2024</h2>
+        <ol class="steps">
+          <li><strong>Markdown Style Guide</strong> — 19 Jun. Sample Markdown syntax.</li>
+          <li><strong>Using MDX</strong> — 1 Jun. <em>"Lorem ipsum dolor sit amet."</em></li>
+        </ol>
+      </div>
+
+      <div class="year-group">
+        <h2>2022</h2>
+        <ol class="steps">
+          <li><strong>Third post</strong> — 22 Jul. <em>"Lorem ipsum dolor sit amet."</em></li>
+          <li><strong>Second post</strong> — 15 Jul. <em>"Lorem ipsum dolor sit amet."</em></li>
+          <li><strong>First post</strong> — 8 Jul. <em>"Lorem ipsum dolor sit amet."</em></li>
+        </ol>
+      </div>
+
+      <p class="disclaimer">
+        These titles, dates and descriptions are copied unedited from
+        <a href="https://github.com/Secd0g/zen">Secd0g/zen</a>'s
+        <code>src/content/blog/</code> — none of them are about CBETA, and none of them should be
+        mistaken for it. For the real thing, go to <a href="https://www.cbeta.org/">cbeta.org</a>.
+      </p>
+    </main>
+    <footer class="site">
+      <div class="site-footer-inner">
+        <p>
+          Unofficial and independent. Not affiliated with, endorsed by, or hosted by CBETA. The
+          real site is at <a href="https://www.cbeta.org/">cbeta.org</a>.
+        </p>
+        <details class="built-with">
+          <summary>Built with the Zen Astro theme — here's how you'd run it yourself</summary>
+          <pre><code># from astro.build/themes/details/zen/
+git clone https://github.com/Secd0g/zen
+cd zen
+npm install
+npm run dev</code></pre>
+        </details>
+      </div>
+    </footer>
+    <button id="back-to-top" title="Back to top" aria-label="Back to top">&uarr;</button>
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>
