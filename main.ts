@@ -44,3 +44,13 @@ for (const themeToggle of document.querySelectorAll<HTMLButtonElement>(".theme-t
     applyTheme(next);
   });
 }
+
+const backToTop = document.querySelector<HTMLButtonElement>("#back-to-top");
+if (backToTop) {
+  window.addEventListener("scroll", () => {
+    backToTop.classList.toggle("show", window.scrollY > 400);
+  });
+  backToTop.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+}

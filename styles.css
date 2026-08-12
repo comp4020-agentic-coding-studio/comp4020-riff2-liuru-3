@@ -457,6 +457,44 @@ footer.site {
   margin: 0.75rem 0 0;
 }
 
+#back-to-top {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 999px;
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  cursor: pointer;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(0.5rem);
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+#back-to-top.show {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#back-to-top:hover {
+  background: var(--seal);
+  color: #fff;
+  border-color: var(--seal);
+}
+
 @media (forced-colors: active) {
   .button-link {
     border: 2px solid ButtonText;
