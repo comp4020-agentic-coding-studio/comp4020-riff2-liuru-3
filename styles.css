@@ -1,11 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
 :root {
-  --ink: #241f1a;
-  --paper: #faf6ee;
-  --paper-dim: #f1ebdd;
-  --rule: #d8cdb4;
-  --seal: #a3311f;
-  --seal-dim: #7c2517;
+  --accent: #f97316;
+  --accent-hover: #ea580c;
+  --accent-light: #fdba74;
+  --ink: #18181b;
+  --text-secondary: #3f3f46;
+  --text-muted: #71717a;
+  --paper: #fff;
+  --paper-dim: #fafafa;
+  --paper-tertiary: #f5f5f5;
+  --rule: #e4e4e7;
+  --seal: var(--accent);
+  --seal-dim: var(--accent-hover);
   --measure: 42rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --accent: #fb923c;
+    --accent-hover: #fdba74;
+    --ink: #fafafa;
+    --text-secondary: #d4d4d8;
+    --text-muted: #a1a1aa;
+    --paper: #18181b;
+    --paper-dim: #202023;
+    --paper-tertiary: #27272a;
+    --rule: #3f3f46;
+    --seal: var(--accent);
+    --seal-dim: var(--accent-hover);
+  }
 }
 
 * {
@@ -27,17 +51,21 @@ body {
   background: var(--paper);
   color: var(--ink);
   font-family:
+    Inter,
     system-ui,
     -apple-system,
     "Segoe UI",
     sans-serif;
-  line-height: 1.6;
+  font-size: 17px;
+  line-height: 1.9;
+  letter-spacing: -0.01em;
 }
 
 h1,
 h2,
 h3 {
-  font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+  font-family: Inter, system-ui, sans-serif;
+  font-weight: 700;
   line-height: 1.2;
   text-wrap: balance;
 }
@@ -88,7 +116,7 @@ header.site {
 }
 
 .site-title {
-  font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+  font-family: Inter, system-ui, sans-serif;
   font-size: 1.25rem;
   font-weight: 700;
   color: var(--ink);
@@ -98,7 +126,7 @@ header.site {
 
 .site-title small {
   display: block;
-  font-family: system-ui, sans-serif;
+  font-family: Inter, system-ui, sans-serif;
   font-weight: 400;
   font-size: 0.7rem;
   letter-spacing: 0.06em;
@@ -110,6 +138,7 @@ header.site {
   display: none;
   border: 1px solid var(--rule);
   background: var(--paper);
+  color: var(--ink);
   border-radius: 0.25rem;
   padding: 0.4rem 0.7rem;
   font-size: 1rem;
@@ -168,6 +197,7 @@ main {
 .lede {
   max-width: var(--measure);
   font-size: 1.15rem;
+  color: var(--text-secondary);
 }
 
 main > p,
@@ -182,7 +212,7 @@ main > ol,
 .disclaimer {
   max-width: var(--measure);
   font-size: 0.9rem;
-  color: #55504a;
+  color: var(--text-muted);
   border-left: 3px solid var(--rule);
   padding: 0.25rem 0 0.25rem 1rem;
 }
@@ -190,7 +220,7 @@ main > ol,
 .panel {
   background: var(--paper-dim);
   border: 1px solid var(--rule);
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   padding: 1.25rem 1.5rem;
   margin: 1.75rem 0;
   max-width: var(--measure);
@@ -210,9 +240,17 @@ main > ol,
 
 .card {
   border: 1px solid var(--rule);
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   padding: 1.25rem;
   background: var(--paper-dim);
+  transition:
+    border-color 0.15s ease,
+    transform 0.15s ease;
+}
+
+.card:hover {
+  border-color: var(--seal);
+  transform: translateY(-2px);
 }
 
 .card h2,
@@ -222,7 +260,7 @@ main > ol,
 }
 
 .card code {
-  background: var(--paper);
+  background: var(--paper-tertiary);
   border: 1px solid var(--rule);
   border-radius: 0.25rem;
   padding: 0.1rem 0.35rem;
@@ -241,7 +279,7 @@ table.canon caption {
   text-align: left;
   font-style: italic;
   margin-bottom: 0.5rem;
-  color: #55504a;
+  color: var(--text-muted);
 }
 
 table.canon th,
@@ -253,7 +291,15 @@ table.canon td {
 }
 
 table.canon th {
-  font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+  font-family: Inter, system-ui, sans-serif;
+}
+
+table.canon tbody tr {
+  transition: background-color 0.15s ease;
+}
+
+table.canon tbody tr:hover {
+  background: var(--paper-dim);
 }
 
 ol.steps {
@@ -292,17 +338,17 @@ dl.contact dd {
 .button-link {
   display: inline-block;
   background: var(--seal);
-  color: var(--paper);
+  color: #fff;
   text-decoration: none;
   padding: 0.6rem 1.1rem;
-  border-radius: 0.3rem;
+  border-radius: 0.4rem;
   font-weight: 600;
   margin: 0.25rem 0.5rem 0.25rem 0;
 }
 
 .button-link:hover {
   background: var(--seal-dim);
-  color: var(--paper);
+  color: #fff;
 }
 
 .button-link.secondary {
@@ -326,11 +372,35 @@ footer.site {
   margin: 0 auto;
   padding: 1.5rem 1.5rem 2.5rem;
   font-size: 0.85rem;
-  color: #55504a;
+  color: var(--text-muted);
 }
 
 .site-footer-inner p {
   max-width: var(--measure);
+}
+
+.built-with {
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px dashed var(--rule);
+  max-width: var(--measure);
+}
+
+.built-with summary {
+  cursor: pointer;
+  color: var(--seal-dim);
+  font-weight: 600;
+}
+
+.built-with pre {
+  background: var(--ink);
+  color: var(--paper);
+  border-radius: 0.5rem;
+  padding: 1rem 1.25rem;
+  overflow-x: auto;
+  font-size: 0.8rem;
+  line-height: 1.6;
+  margin: 0.75rem 0 0;
 }
 
 @media (forced-colors: active) {
