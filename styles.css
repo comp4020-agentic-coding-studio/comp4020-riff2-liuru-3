@@ -77,7 +77,12 @@ html {
 
 body {
   margin: 0;
-  background: var(--paper);
+  background-color: var(--paper);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Ccircle cx='200' cy='200' r='150' fill='none' stroke='%23f97316' stroke-opacity='0.1' stroke-width='16' stroke-linecap='round' stroke-dasharray='830 70' transform='rotate(-35 200 200)'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: 95% -8%;
+  background-size: min(60vw, 42rem);
+  background-attachment: fixed;
   color: var(--ink);
   font-family:
     Inter,
