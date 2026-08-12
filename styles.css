@@ -327,11 +327,39 @@ main > ol,
   margin-top: 0;
 }
 
+.spotlight {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+  background: var(--paper-dim);
+  border: 1px solid var(--seal);
+  border-radius: 1rem;
+  padding: 2rem;
+  margin: 1.75rem 0 2.5rem;
+  max-width: 60rem;
+}
+
+.spotlight-main h3 {
+  margin-top: 0;
+  font-size: 1.4rem;
+}
+
+@media (width <= 55rem) {
+  .spotlight {
+    grid-template-columns: 1fr;
+  }
+}
+
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
   gap: 1.25rem;
   margin: 1.75rem 0;
+}
+
+.card-grid.secondary {
+  max-width: 60rem;
 }
 
 .card {
@@ -361,6 +389,15 @@ main > ol,
   border-radius: 0.25rem;
   padding: 0.1rem 0.35rem;
   font-size: 0.85em;
+}
+
+.card-grid.secondary .card {
+  padding: 1rem 1.25rem;
+  background: transparent;
+}
+
+.card-grid.secondary h3 {
+  font-size: 0.95rem;
 }
 
 table.canon {
@@ -396,6 +433,24 @@ table.canon tbody tr {
 
 table.canon tbody tr:hover {
   background: var(--paper-dim);
+}
+
+.spotlight table.canon.compact {
+  margin: 0;
+  max-width: none;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+.spotlight table.canon.compact caption {
+  padding: 0.75rem 1rem 0;
+}
+
+.spotlight table.canon.compact th,
+.spotlight table.canon.compact td {
+  padding: 0.5rem 1rem;
 }
 
 ol.steps {
