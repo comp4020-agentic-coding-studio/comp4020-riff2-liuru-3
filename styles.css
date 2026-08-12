@@ -199,6 +199,48 @@ header.site {
   cursor: pointer;
 }
 
+.toc-sidebar {
+  display: none;
+  position: fixed;
+  top: 6.5rem;
+  right: 1.5rem;
+  width: 14rem;
+  max-height: calc(100vh - 9rem);
+  overflow-y: auto;
+  font-size: 0.82rem;
+  padding: 0.75rem 0 0.75rem 1rem;
+  border-left: 1px solid var(--rule);
+}
+
+.toc-sidebar .toc-title {
+  margin: 0 0 0.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+.toc-sidebar .toc-link {
+  display: block;
+  padding: 0.3rem 0;
+  color: var(--text-muted);
+  text-decoration: none;
+  border-left: 2px solid transparent;
+  padding-left: 0.6rem;
+  margin-left: -0.75rem;
+}
+
+.toc-sidebar .toc-link:hover {
+  color: var(--seal);
+}
+
+@media (width >= 80rem) {
+  .toc-sidebar {
+    display: block;
+  }
+}
+
 nav.primary {
   display: flex;
   flex-wrap: wrap;

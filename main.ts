@@ -45,6 +45,32 @@ for (const themeToggle of document.querySelectorAll<HTMLButtonElement>(".theme-t
   });
 }
 
+const article = document.querySelector<HTMLElement>("main");
+const headings = article ? [...article.querySelectorAll<HTMLHeadingElement>("h2")] : [];
+if (article && headings.length >= 2) {
+  const toc = document.createElement("nav");
+  toc.className = "toc-sidebar";
+  toc.setAttribute("aria-label", "On this page");
+  const title = document.createElement("p");
+  title.className = "toc-title";
+  title.textContent = "On this page";
+  toc.appendChild(title);
+  for (const heading of headings) {
+    if (!heading.id) {
+      heading.id = (heading.textContent ?? "")
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/(^-|-$)/g, "");
+    }
+    const link = document.createElement("a");
+    link.className = "toc-link";
+    link.href = `#${heading.id}`;
+    link.textContent = heading.textContent;
+    toc.appendChild(link);
+  }
+  document.body.appendChild(toc);
+}
+
 const backToTop = document.querySelector<HTMLButtonElement>("#back-to-top");
 if (backToTop) {
   window.addEventListener("scroll", () => {
